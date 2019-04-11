@@ -7,9 +7,17 @@ import java.lang.annotation.Target;
 
 /**
  * @author athoucai
- * @date 2019/4/10
+ * @date 2019/3/28
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface PermissionDenied {
+public @interface NeedPermissions {
+
+    NeedPermission[] value();
+
+    /**
+     * 权限请求结果的回调方法名
+     * @return
+     */
+    String permissionResult() default "";
 }

@@ -1,7 +1,7 @@
 ## 简单易用，低耦合的权限请求库
 
 <li>前言：本库是学习aspectj的练手项目，对权限请求充分解耦。<br>
-感谢： [Hujiang](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)的插件
+感谢： [Hujiang](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx) 的插件
 
 <font color='#ff5454'><strong>注：本库底层权限请求是基于rxpermission2的基础上进行开发的</strong></font>
 <li>功能：

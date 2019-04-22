@@ -64,6 +64,19 @@
              Toast.makeText(activity, "权限申请成功", Toast.LENGTH_SHORT).show();
          }
 
+4，如果你需要监听权限决绝的事件，你可以这样做：
+
+     /**
+         * 权限拒绝回调，如果不需要拒绝的回调，可以不写。<br>
+         * 拒绝回调采用注解的方式，对方法名无要求，但是方法参数第一个必须说List<String>，否则收不到权限拒绝回调
+         *
+         * @param permissions
+         */
+        @PermissionDenied
+        public void permissionDenied(List<String> permissions) {
+            Toast.makeText(this, "testPermission，权限拒绝:" + permissions.toString(), Toast.LENGTH_SHORT).show();
+        }
+
 <li>混淆配置
 
     -keepclassmembers class * {

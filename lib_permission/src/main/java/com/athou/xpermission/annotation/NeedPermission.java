@@ -1,5 +1,7 @@
 package com.athou.xpermission.annotation;
 
+import android.support.annotation.Keep;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -15,18 +17,21 @@ public @interface NeedPermission {
 
     /**
      * 请求的权限组
+     *
      * @return
      */
     String[] permissions();
 
     /**
      * 当前权限组是否为必须的
+     *
      * @return
      */
     boolean necessary() default true;
 
     /**
      * 权限请求结果的回调方法名
+     *
      * @return
      */
     String permissionResult() default "";

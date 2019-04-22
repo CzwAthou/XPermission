@@ -1,6 +1,7 @@
 package com.athou.xpermission;
 
 import android.content.Context;
+import android.support.annotation.Keep;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -40,11 +41,13 @@ public class PermissionAspect {
 
     private final String TAG = "PermissionAspect";
 
+    @Keep
     @Pointcut("execution(@com.athou.xpermission.annotation.NeedPermission * *(..))")
     public void needPermission() {
     }
 
     @Pointcut("execution(@com.athou.xpermission.annotation.NeedPermissions * *(..))")
+    @Keep
     public void needPermissions() {
     }
 
@@ -121,9 +124,6 @@ public class PermissionAspect {
         } else {
             return false;
         }
-
-        rxPermissions.setLogging(true);
-
         List<Observable<Pair<String[], Boolean>>> obs = new ArrayList<>();
         for (NeedPermission permissionItem : needPermissions) {
             final String[] permissions = permissionItem.permissions();

@@ -19,3 +19,65 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+#-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-dontshrink
+-dontoptimize
+
+#不混淆使用了 annotation的类
+-keepattributes *Annotation*
+#不混淆javascript
+-keepattributes JavascriptInterface
+#不混淆 使用反射机制的类
+-keepattributes Signature
+#忽略警告
+-ignorewarnings
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keepattributes *Annotation*
+
+-dontwarn android.support.v4.**
+-keep class android.support.v4.** { *; }
+-keep class android.support.v7.** { *; }
+-keep class android.view.** { *; }
+
+# ****** 混淆配置 ******
+-keepclassmembers class * {
+    @com.athou.xpermission.annotation.NeedPermission *;
+}
+-keepclassmembers class * {
+    @com.athou.xpermission.annotation.NeedPermissions *;
+}
+-keepclassmembers class * {
+    @com.athou.xpermission.annotation.PermissionDenied *;
+}

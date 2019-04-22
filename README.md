@@ -64,5 +64,13 @@
              Toast.makeText(activity, "权限申请成功", Toast.LENGTH_SHORT).show();
          }
 
-<li>最后    有问题的话欢迎讨论！！！
+<li>混淆配置
 
+    -keepclassmembers class * {
+        @com.athou.xpermission.annotation.NeedPermission *;
+    }
+    -keepclassmembers class * {
+        @com.athou.xpermission.annotation.NeedPermissions *;
+    }
+
+<li>最后    有问题的话欢迎讨论！！！

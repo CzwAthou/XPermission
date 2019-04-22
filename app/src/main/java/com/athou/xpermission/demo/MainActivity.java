@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @NeedPermission(permissions = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}),
             @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE, necessary = false)
     })
+    @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE, necessary = false)
     public void testPermission3(Activity activity) {
         Toast.makeText(activity, "权限申请成功", Toast.LENGTH_SHORT).show();
     }
